@@ -52,14 +52,18 @@ export default function Editor() {
           return currentLineText === '/'
         }}
       >
-        <button className='flex items-center gap-2 p-1 rounded min-w-[280px] hover:bg-zinc-100'>
+        <button 
+        className='flex items-center gap-2 p-1 rounded min-w-[280px] hover:bg-zinc-100'
+        onClick={() => editor.chain().focus().toggleBulletList().run()}
+        data-active={editor.isActive('bulletList')}
+        >
           <img 
-            src="https://www.notion.so/images/blocks/text/en-US.png" 
-            alt="Text"
+            src="https://www.notion.so/images/blocks/bulleted-list.0e87e917.png" 
+            alt="Bulleted list"
             className='w-12 border border-zinc-200 rounded' />
           <div className='flex flex-col text-left text-zinc-600'>
-            <span className='text-sm text-zinc-900'>Text</span>
-            <span className='text-xs text-zinc-600'>Just start writing with plain text.</span>
+            <span className='text-sm text-zinc-900'>Bulleted list</span>
+            <span className='text-xs text-zinc-600'>Create a simple bulleted list.</span>
           </div>
         </button>
 
@@ -96,34 +100,34 @@ export default function Editor() {
 
       { editor? <BubbleMenu className='bg-white shadow-xl shadow-black/30 border border-zinc-200 rounded-lg overflow-hidden flex divide-x divide-zinc-200 ' editor={editor}>
         
-        <button className='p-2 text-zinc-600 text-sm flex items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-100 flex items-center'>
+        <button className='p-2 text-zinc-600 text-sm flex align-items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-100 flex items-center'>
             Text
             <RxChevronDown className='w-4 h-4'/>
         </button>
-        <button className='p-2 text-zinc-600 text-sm flex items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-100 flex items-center'>
+        <button className='p-2 text-zinc-600 text-sm flex align-items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-100 flex items-center'>
             <RxChatBubble className='w-4 -4'/>
             Coment
         </button>
         <div className='flex '>
-          <button className='p-2 text-zinc-600 text-sm flex items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-200 flex items-center data-[active=true]:text-sky-400' 
+          <button className='p-2 text-zinc-600 text-sm flex align-items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-200 flex items-center data-[active=true]:text-sky-400' 
             onClick={() => editor.chain().focus().toggleBold().run()}
             data-active={editor.isActive('bold')} 
           >
             <RxFontBold className='w-4 h-4'/>
           </button>
-          <button className='p-2 text-zinc-600 text-sm flex items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-200 items-center data-[active=true]:text-sky-400'
+          <button className='p-2 text-zinc-600 text-sm flex align-items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-200 items-center data-[active=true]:text-sky-400'
           onClick={() => editor.chain().focus().toggleItalic().run()}
           data-active={editor.isActive('italic')} 
           >
             <RxFontItalic className='w-4 h-4'/>
           </button >
-          <button className='p-2 text-zinc-600 text-sm flex items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-200 items-center data-[active=true]:text-sky-400' 
+          <button className='p-2 text-zinc-600 text-sm flex align-items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-200 items-center data-[active=true]:text-sky-400' 
             onClick={() => editor.chain().focus().toggleStrike().run()}
             data-active={editor.isActive('strike')}
           >
             <RxStrikethrough className='w-4 h-4'/>
           </button>
-          <button className='p-2 text-zinc-600 text-sm flex items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-200 items-center data-[active=true]:text-sky-400' 
+          <button className='p-2 text-zinc-600 text-sm flex align-items-center gap-1.5 font-medium leadind-none hover:text-zinc-600 hover:bg-zinc-200 items-center data-[active=true]:text-sky-400' 
             onClick={() => editor.chain().focus().toggleCode().run()}
             data-active={editor.isActive('code')}>
             <RxCode className='w-4 h-4'/>
